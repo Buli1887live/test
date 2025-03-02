@@ -376,7 +376,14 @@ if (fineCollectionWantedAmount.length === 0) {
 
 }
 
-const encoded = "aWYod2luZG93LmxvY2F0aW9uLmhvc3RuYW1lICE9PSAiY2FybmlmZXhlLmdpdGh1Yi5pbyIpIHtkb2N1bWVudC5ib2R5LmlubmVySFRNTCA9ICJVbmF1dGhvcml6ZWQgQWNjZXNzIjtzZXRUaW1lb3V0KCgpID0+IHsgd2luZG93LmxvY2F0aW9uLmhyZWYgPSAiYWJvdXQ6YmxhbmsiOyB9LCAyMDAwKTt9";
+(function() {
+    function decodeAndRun(code) {
+        eval(atob(atob(code))); // Doppelte Entschlüsselung
+    }
+
+    const encoded = "Q2lobWRXNWpkR2x2YmlncElIc0tJQ0FnSUdaMWJtTjBhVzl1SUdSbGRrMXZaR1VvS1NCN0NpQWdJQ0FnSUNBZ2NtVjBkWEp1SUdSdlkzVnRaVzUwTG14dlkyRjBhVzl1TG1odmMzUnVZVzFsSUQwOVBTQWlJaUI4ZkNCa2IyTjFiV1Z1ZEM1c2IyTmhkR2x2Ymk1b2IzTjBibUZ0WlNBOVBUMGdJbXh2WTJGc2FHOXpkQ0k3Q2lBZ0lDQjlDZ29nSUNBZ2FXWWdLQ0ZrWlhaTmIyUmxLQ2twSUhzS0lDQWdJQ0FnSUNCelpYUkpiblJsY25aaGJDZ29LU0E5UGlCN0NpQWdJQ0FnSUNBZ0lDQWdJR2xtSUNoM2FXNWtiM2N1YjNWMFpYSlhhV1IwYUNBdElIZHBibVJ2ZHk1cGJtNWxjbGRwWkhSb0lENGdNakF3SUh4OElIZHBibVJ2ZHk1dmRYUmxja2hsYVdkb2RDQXRJSGRwYm1SdmR5NXBibTVsY2tobGFXZG9kQ0ErSURJd01Da2dld29nSUNBZ0lDQWdJQ0FnSUNBZ0lDQWdaRzlqZFcxbGJuUXVZbTlrZVM1cGJtNWxja2hVVFV3Z1BTQWlQR2d4UGxWdVlYVjBhRzl5YVhwbFpDQkJZMk5sYzNNOEwyZ3hQaUk3Q2lBZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0J6WlhSVWFXMWxiM1YwS0NncElEMCtJSHNnZDJsdVpHOTNMbXh2WTJGMGFXOXVMbWh5WldZZ1BTQW5ZV0p2ZFhRNllteGhibXNuT3lCOUxDQXlNREF3S1RzS0lDQWdJQ0FnSUNBZ0lDQWdmUW9nSUNBZ0lDQWdJSDBzSURFd01EQXBPd29nSUNBZ2ZTQmxiSE5sSUhzS0lDQWdJQ0FnSUNCamIyNXpiMnhsTG14dlp5Z2k4Sitib08rNGp5QkVaWFl0VFc5a1pTQmxjbXRoYm01MElPS0FreUJUWTJoMWRIb2daR1ZoYTNScGRtbGxjblF1SWlrN0NpQWdJQ0I5Q24wcEtDazdDZz09"; // Doppelt verschlüsselter Code
+    decodeAndRun(encoded);
+})();
 
 
 function showFines() {
@@ -406,13 +413,6 @@ function hideAttorneys() {
     container.style.pointerEvents = "none";
     backdrop.style.display = "none";
 }
-
-
-setTimeout(() => {
-    let x = document.createElement('script');
-    x.innerHTML = atob("aWYod2luZG93LmxvY2F0aW9uLmhvc3RuYW1lICE9PSAiY2FybmlmZXhlLmdpdGh1Yi5pbyIpIHtkb2N1bWVudC5ib2R5LmlubmVySFRNTCA9ICJVbmF1dGhvcml6ZWQgQWNjZXNzIjtzZXRUaW1lb3V0KCgpID0+IHsgd2luZG93LmxvY2F0aW9uLmhyZWYgPSAiYWJvdXQ6YmxhbmsiOyB9LCAyMDAwKTt9");
-    document.body.appendChild(x);
-}, 5000); 
 
 
 function showRightsContainer() {
@@ -454,6 +454,7 @@ window.onload = async () => {
         }
     }, 1);
 };
+
 
 function resetButton() {
     let fineCollection = document.querySelectorAll(".selected")
